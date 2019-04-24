@@ -1,0 +1,35 @@
+{% extends "base2.html" %} {% block title %}Student Page{% endblock %}
+{% block content %}
+<h1>SURVEY INDEX</h1>
+{% if selected == False %}
+    <font color="red">Please select a course and/or semester!</font><br>
+{% else %}
+    <br>
+{% endif %}
+<br>
+
+<Form method="POST">
+
+    <select class="dropdown_list" name="course_selection" onchange="this.form.submit()">
+        <option disabled selected class="dropdown"> -- select course -- </option>
+        {% for id, text in courses.items() %}
+            {% if id == chosen %}
+                <option selected value="{{ id }}" class="dropdown_selected">{{ text }}</option>
+            {% else %}
+                <option value="{{ id }}" class="dropdown">{{ text }}</option>
+            {% endif %}
+        {% endfor %}
+    </select>
+    <br><br>
+
+    <div  class="text_output">
+    {% for survey in surveys %}
+        <b>{{ loop.index }}. </b>
+        <a href="/survey={{ survey[3] }}">
+            {{ survey[0] }} - {{ survey[1] }} {{ survey[2] }}
+        </a><br>
+    {% endfor %}
+    </div>
+
+</Form>
+{% endblock %}

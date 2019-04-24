@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %}Admin Page{% endblock %} {% block content %}
+<h1>Please enter details</h1>
+
+<div class="back_button">
+	<a href="/">
+		<img src="https://goo.gl/aNsDnv">
+	</a>
+	<br><br><br>
+</div>
+
+<Form method="POST">
+	<br><br>
+	{% if current_guest[0] == "" %}
+	<input class="user_text_input" name="username" placeholder="Enter Username"/>
+	{% else %}
+	<input class="user_text_input" name="username" value="{{ current_guest[0] }}"/>
+	{% endif %}
+	<br>
+	{% if current_guest[1] == "" %}
+	<input class="user_text_input" type="password" name="password" placeholder="Enter Password"/>
+	{% else %}
+	<input class="user_text_input" type="password" name="password" value="{{ current_guest[1] }}"/>
+	{% endif %}
+	<br><br>
+	<select class="dropdown_list" name="course_selection" onchange="this.form.submit()">
+		<option disabled selected class="dropdown"> -- select course -- </option>
+		{% for c in displays[0] %}
+			{% if values[0] == c %}
+				<option selected value="{{ c }}" class="dropdown_selected">{{ c }}</option>
+			{% else %}
+				<option value="{{ c }}" class="dropdown">{{ c }}</option>
+			{% endif %}
+		{% endfor %}
+	</select>
+	<select class="dropdown_list" name="sem_selection" onchange="this.form.submit()">
+		{% for s in displays[1] %}
+			{% if values[1] == s %}
+				<option selected value="{{ s }}" class="dropdown_selected">{{ s }}</option>
+			{% else %}
+				<option value="{{ s }}" class="dropdown">{{ s }}</option>
+			{% endif %}
+		{% endfor %}
+	</select>
+	<br><br>
+	<button type="submit" name="register_bt">Register</button>
+</Form>
+{% endblock %}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles/main.css') }}">
+		<title>
+			{% block title %}{% endblock %}
+		</title>
+	</head>
+
+	<body>
+
+		<div class="navigation">
+			{% if user.role == 'admin' %}
+				<a href="/active_surveys"><button type="submit" name="bt" value="Active Surveys">Active Surveys</button></a>
+			{% endif %}
+			<a href="/{{ user.role }}_home"><button type="submit" name="bt" value="Homepage">Homepage</button></a>
+			<a href="/"><button type="submit" name="bt" value="Logout">Logout</button></a>
+		</div>
+		<div class="hello">Hello {{user.role}}, {{user.id}}</div>
+		<div id="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+
+</html>

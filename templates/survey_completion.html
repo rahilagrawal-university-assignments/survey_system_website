@@ -1,0 +1,41 @@
+{% extends "base2.html" %} {% block title %}Survey{% endblock %}
+{% block content %}
+{% if not_found %}
+    <br><br>
+    <h2>No survey found for course: {{ values[0] }} - {{ values[1] }}</h2>
+{% elif completed == 1 and review == False %}
+    <h1> Thank you for completing the survey</h1>
+    <Form method="POST">
+        <!--button type="submit" name="review_ans_bt">Review Answers</button-->
+    </Form>
+{% else %}
+    <h1>Survey for {{ values[0] }} - {{ values[1] }}</h1>
+    <h2>{{ values[2] }}</h2><br>
+
+    <Form method="POST">
+        {% for id, question in questions.items() %}
+
+            <p class="radio_block">
+                <b>{{ loop.index }}.</b> {{ question[0] }}
+                {% if question[1] == 1 %} (mandatory) {% else %} (optional) {% endif %}<br>
+                {% if question[2] == 1 %}
+                    <input type="radio" name="{{ id }}" value="Agree"> Agree<br>
+                    <input type="radio" name="{{ id }}" value="Neutral"> Neutral<br>
+                    <input type="radio" name="{{ id }}" value="Disagree"> Disagree<br>
+                    <input type="radio" name="{{ id }}" value="N/A"> N/A
+                {% else %}
+                    <input type="text" name="{{ id }}">
+                {% endif %}
+            </p>
+            <br>
+        {% endfor %}
+
+        {% if completed == 2 %}
+            <font color="red">Please select an option for every question!</font>
+        {% endif %}
+        <br>
+
+        <button type="submit" name="submit_survey_bt">Submit Survey</button>
+    </Form>
+{% endif %}
+{% endblock %}

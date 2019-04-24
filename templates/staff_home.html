@@ -1,0 +1,14 @@
+{% extends "base2.html" %} {% block title %}Staff Page{% endblock %}
+{% block content %}
+<h1>Surveys to Review</h1>
+
+<div class="text_output">
+	{% for survey in surveys %}
+		<b>{{ loop.index }}. </b>
+		<a href="{{url_for('review_survey', survey_link = survey[3])}}">
+	        {{ survey[0] }} - {{ survey[1] }} {{ survey[2] }}
+	    </a>
+		<br><br>
+	{% endfor %}
+</div>
+{% endblock %}

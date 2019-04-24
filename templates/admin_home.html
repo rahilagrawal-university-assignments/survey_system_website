@@ -1,0 +1,25 @@
+{% extends "base2.html" %} {% block title %}Admin Page{% endblock %}
+{% block content %}
+<h1>SURVEY INDEX</h1>
+
+{% if selected == False %}
+    <font color="red">Please select a course and/or semester!</font><br>
+{% else %}
+    <br>
+{% endif %}
+<br>
+<Form method="POST">
+
+    <button type="submit" name="bt" value="add_questions">Add Questions</button>
+    <button type="submit" name="bt" value="preview">Preview Questions</button>
+    <button type="submit" name="bt" value="create_survey">Create Survey</button>
+    <button type="submit" name="bt" value="active_surveys">Active Surveys</button>
+    <br><br>
+    <h3>Quest Requests</h3>
+    {% for guest, course in guests.items() %}
+    {{ guest }} - {{ course.code }} {{ course.sem }}
+    <button type="submit" name="bt" value="{{ guest }}">Accept User</button><br>
+    {% endfor %}
+
+</Form>
+{% endblock %}

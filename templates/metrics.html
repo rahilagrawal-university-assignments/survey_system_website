@@ -1,0 +1,43 @@
+{% extends "base2.html" %} {% block title %}Survey for {{ values[0] }} - {{ values[1] }}{% endblock %}
+{% block content %}
+<h1>Survey for {{ values[0] }} - {{ values[1] }}</h1>
+<h2>{{ values[2] }}</h2><br>
+<div class="back_button">
+    <a href="/active_surveys">
+        <img src="https://goo.gl/aNsDnv">
+    </a>
+    <br><br><br>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var options = {
+            'width':500, 'height':500, legend:'none',
+            backgroundColor:{fill:'transparent', stroke:'black'}
+        };
+        {% for i in range(1, questions|count + 1) %}
+        var data{{i}} = google.visualization.arrayToDataTable([
+            ['Answers', 'Responses'],
+            {%- for answer, response in data[i] %}
+            ['{{ answer }}', {{ response }}],
+            {%- endfor %}
+        ]);
+        var chart{{i}} = new google.visualization.PieChart(document.getElementById('pie'+{{i}}));
+        chart{{i}}.draw(data{{i}}, options);
+        {% endfor %}
+    }
+</script>
+
+<Form method="POST">
+    {% for id, question in questions.items() %}
+        <b>{{ loop.index }}.</b> {{ question[0] }}
+        <div id="pie{{ loop.index }}"></div>
+    {% endfor %}
+</Form>
+<p class="text_output">
+    Survey Link: <a href="/survey={{ link }}">localhost:5000/survey={{ link }}</a>
+</p>
+{% endblock %}

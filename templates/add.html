@@ -1,0 +1,36 @@
+{% extends "base2.html" %} {% block title %}Question Creation{% endblock %} {% block content %}
+
+<h1>Add Question to Pool</h1>
+<div class="back_button">
+	<a href="/{{ user.role }}_home">
+		<img src="https://goo.gl/aNsDnv">
+	</a>
+</div>
+
+<Form method="POST">
+	{% if flag == True %}
+		<font color="red">Please enter valid input for all fields</font><br>
+	{% else %}
+		<br>
+	{% endif %}
+	<br>
+	<input class="text_input" name="question" placeholder="Enter Question"/>
+	<p>
+		<b>Choose question type:</b>
+		<div class="radio_block">
+			<input type="radio" name=type1 value='1'> Mandatory
+			<br>
+			<input type="radio" name=type1 value='0'> Optional
+			<br><br>
+		</div>
+		<b>Choose question type:</b><br><br>
+		<div class="radio_block">
+			<input type="radio" name=type2 value='1'> Multiple Choice
+			<br>
+			<input type="radio" name=type2 value='0'> Text-based
+		</div>
+	</p>
+	<button type="submit" name="question_bt">Add Question</button>
+	<button type="submit" name="preview">Preview Questions</button>
+</Form>
+{% endblock %}

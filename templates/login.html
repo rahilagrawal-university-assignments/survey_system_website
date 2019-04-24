@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block title %}Admin Page{% endblock %}
+{% block content %}
+<h1>Please enter login details</h1>
+{% if valid == False%}
+    <b><font color="white">Login details incorrect, try again!</font></b>
+{% else %}
+    <br>
+{%endif%}
+
+<Form method="POST">
+    <br><br>
+    <input class="user_text_input" name="username" placeholder="Enter Username"/>
+    <br>
+    <input class="user_text_input" type="password" name="password" placeholder="Enter Password"/>
+    <br><br>
+    <button type="submit" name="login_bt">Login</button>
+    <br><br>
+    <button type="submit" name="guest_bt">Register as Guest User</button>
+</Form>
+{% endblock %}

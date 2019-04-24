@@ -1,0 +1,27 @@
+{% extends "base2.html" %} {% block title %}Surveys{% endblock %}
+{% block content %}
+<h1>Active Surveys</h1>
+<div class="back_button">
+    <a href="/{{user.role}}_home">
+        <img src="https://goo.gl/aNsDnv">
+    </a>
+    <br>
+</div>
+
+{% for survey in surveys %}
+    <div  class="text_output">
+        <b>{{ loop.index }}. </b>
+        <a href="/survey_overview/{{ survey.link }}">
+            {{ survey.title }} - {{ survey.code }} {{ survey.sem }}
+        </a>
+        {% if survey.status == 1 %}
+            -- <font color="#53f442"> Open</font>
+        {% elif survey.status == 2 %}
+            -- <font color="#ef932b"> Review Stage</font>
+        {% endif %}
+        <Form method="POST">
+        <button type="submit" name="close_survey" value="{{survey.link}}"> Close this survey </button>
+    </Form>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,133 @@
+* {
+	text-align: center;
+	#background-image: http://smashingyolo.com/wp-content/uploads/2014/05/Best-Website-Background-Images4.jpg;
+	#background-color: purple;
+	#background-image: url(https://ak8.picdn.net/shutterstock/videos/7445014/thumb/1.jpg);
+}
+
+body{
+	#background-color: purple;
+	#background-image: url(https://ak8.picdn.net/shutterstock/videos/7445014/thumb/1.jpg);
+	background-image:  url(http://static.simpledesktops.com/uploads/desktops/2016/07/19/Path.png.625x385_q100.png);
+	background-size: cover;
+}
+
+Form {
+	color: white;
+	text-align: center;
+	#font-size: 100px;
+	#background-color: purple;
+}
+
+h1 {
+	color: white;
+	font-family: monospace;
+	font-size: 55px;
+}
+
+h2 {
+	color: white;
+	font-family: monospace;
+	font-size: 30px;
+}
+
+.radio_block{
+	margin: 0 auto;
+	width: 100%;
+	padding: 0% 47%;
+	text-align: left;
+}
+
+.checkbox_block{
+	margin: 0 auto;
+	width: 100%;
+	#padding: 0% 10%;
+	text-align:left;
+	font-size: 20px;
+}
+
+input.text_input {
+	background-color: white;
+	color: black;
+	font-weight: bold;
+	font-size: 15px;
+	width: 1000px;
+	height: 30px;
+}
+
+.user_text_input{
+	background-color: white;
+	color: black;
+}
+
+.text_output{
+	padding: 0% 10%;
+	text-align: left;
+	font-size: 20px;
+	color: white;
+}
+
+.text_output a{
+	#padding: 0% 10%;
+	text-align: left;
+	font-size: 30px;
+	color: white;
+}
+
+.back_button img{
+	float: left;
+	height: 50px;
+	width: 50px;
+}
+
+button {
+	background-color: #00af9f;
+	border: none;
+	color: white;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.dropdown {
+	background-color: #FF0000;
+	border: thick;
+	color: black;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.dropdown_selected {
+	background-color: #38a8bc;
+	border: thick;
+	color: black;
+	padding: 10px 25px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.create_survey_body{
+	padding: 0% 10%;
+	text-align: left;
+}
+
+.navigation{
+	text-align: right;
+}
+
+.hello {
+	color: white;
+	font-family: monospace;
+	font-size: 30px;
+	text-align: left;
+}

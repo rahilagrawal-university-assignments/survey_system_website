@@ -1,0 +1,30 @@
+{% extends "base2.html" %} {% block title %}Create Survey{% endblock %}
+{% block content %}
+<h1>Create Survey</h1>
+
+<div class="back_button">
+	<a href="/{{ user.role }}_home">
+		<img src="https://goo.gl/aNsDnv">
+	</a>
+	<br>
+</div>
+
+<Form method="POST">
+	<div class="create_survey_body">
+		{% for q in in_survey %}
+		{{ q }}<br>
+		{% endfor %}
+		{% for id, question in questions.items() %}
+			<p class="checkbox_block"><input type="checkbox" name="available" value="{{ id }}"/>
+				<b>{{ loop.index }}.</b> {{ question }}
+			</p>
+		{% endfor %}
+		<button type="submit" name="open_survey_bt">Finish and Open Survey</button><br><br>
+	</div>
+</Form>
+{% if link %}
+	<p class="text_output">
+		Survey Link: <a href="/survey={{ link }}">localhost:5000/survey={{ link }}</a>
+	</p>
+{% endif %}
+{% endblock %}

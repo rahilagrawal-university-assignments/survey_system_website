@@ -1,0 +1,16 @@
+{% extends "base2.html" %} {% block title %}Questions{% endblock %}
+{% block content %}
+<h1>Questions</h1>
+<div class="back_button">
+    <a href="/{{ back }}">
+        <img src="https://goo.gl/aNsDnv">
+    </a>
+    <br><br><br>
+</div>
+
+{% for question in questions %}
+    <p class="text_output">
+        <b>{{ loop.index }}.</b> {{ question }}
+    </p>
+{% endfor %}
+{% endblock %}
